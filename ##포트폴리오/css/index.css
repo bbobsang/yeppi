@@ -1,0 +1,1015 @@
+@charset 'utf-8';
+
+@import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2');
+@import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2');
+
+html {
+    scroll-behavior: smooth;
+
+}
+
+body{background-color:transparent;
+    overflow-x: hidden;}
+
+
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.wrap {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    /* background-color: beige; */
+
+}
+
+
+
+header {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+header p {
+
+    font-size: 120px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'forte';
+    cursor: none;
+}
+
+/* ------------------------------------ */
+#mouse-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+    transform: translate3d(-100%, -100%, 0);
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 10000;
+}
+
+#mouse-cursor>div {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    font-size: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --cursor-scale: 1;
+    transform: scale3d(var(--cursor-scale), var(--cursor-scale), 1);
+    will-change: transform;
+    transition: transform 150ms ease-in-out,
+        background-color 150ms ease-in-out;
+}
+
+#mouse-cursor>div::after {
+    content: attr(data-name);
+    position: absolute;
+    color: #fff;
+    transform: scale(0.45);
+    white-space: nowrap;
+
+}
+
+.cursor-text-mode {
+    mix-blend-mode: initial !important;
+}
+
+.cursor-text-mode>div {
+    background-color: rgb(17, 17, 17) !important;
+}
+
+
+
+
+
+
+
+
+.scroll-down {
+    z-index: 11;
+    position: absolute;
+    width: 42px;
+    height: 64px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 5%;
+    border: 2px solid red;
+    border-radius: 50px;
+    cursor: none;
+}
+
+.scroll-down::before,
+.scroll-down::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    border: 2px solid red;
+    height: 10px;
+    width: 10px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-top: transparent;
+    border-left: transparent;
+    animation: MoveArrow 1s ease-in-out infinite;
+}
+
+.scroll-down::after {
+    top: 30%;
+    animation-delay: 0.3s;
+}
+
+@keyframes MoveArrow {
+
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        top: 90%;
+    }
+
+}
+
+
+
+
+
+
+/* --------------------------------------- */
+
+
+nav {
+    width: 108px;
+    height: 365px;
+    position: fixed;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    font-family: 'SUIT-SemiBold';
+    font-weight: bold;
+    z-index: 1000000;
+
+}
+
+nav a {
+    position: relative;
+    text-align: right;
+    line-height: 61px;
+    width: 108px;
+    height: 61px;
+    padding-right: 15px;
+    box-sizing: border-box;
+
+}
+
+.underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background-color: #000;
+    transition: all 0.5s;
+}
+
+.underline:hover::after {
+    width: 100%;
+}
+
+/* ------------------------------------------------- */
+
+.profile {
+    width: 100vw;
+    height: 100vh;
+    /* padding-top: 150px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding-left: 200px;
+    box-sizing: border-box;
+    /* margin-bottom: 40px; */
+}
+
+
+
+
+
+.profile div {
+    display: inline-block;
+}
+
+.pf-left {
+    float: left;
+    padding-right: 100px;
+    box-sizing: border-box;
+}
+
+.profile .pf-left img {
+    width: 500px;
+}
+
+.profile .info {
+    display: block;
+    text-align: left;
+    margin-bottom: 100px;
+}
+
+.profile .info h3,
+.profile .info h4 {
+    display: inline-block;
+    padding-left: 100px;
+}
+
+.profile .info h3 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.profile .info h4 {
+    font-size: 20px;
+    color: rgb(53, 53, 53);
+}
+
+.pf-center {
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+
+.pf-center span {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.pf-right {
+    position: relative;
+    width: 307px;
+
+}
+
+.pf-right .skills {
+    position: absolute;
+    overflow: hidden;
+    background-color: #dddddb;
+    width: 307px;
+    height: 39px;
+    bottom: 310px;
+}
+
+/* ----------------------------------------- */
+.pf-right .level1 {
+    position: absolute;
+    left: -100%;
+    animation: bar1 1s both;
+    animation-play-state: paused;
+}
+
+
+
+.pf-right .flower1 {
+    position: absolute;
+    bottom: 300px;
+    left: 5%;
+    z-index: 10;
+    animation: flower1 1s both;
+    animation-play-state: paused;
+}
+
+
+
+.pf-right .skills2 {
+    position: absolute;
+    overflow: hidden;
+    background-color: #dddddb;
+    width: 307px;
+    height: 39px;
+    bottom: 235px;
+    animation-play-state: paused;
+}
+
+.pf-right .level2 {
+    position: absolute;
+    left: -100%;
+    top: 0px;
+    animation: bar2 1s both;
+    animation-play-state: paused;
+
+}
+
+
+
+
+.pf-right .flower2 {
+    position: absolute;
+    bottom: 230px;
+    left: 5%;
+    z-index: 10;
+    animation: flower2 1s both;
+    animation-play-state: paused;
+}
+
+.pf-right .skills3 {
+    position: absolute;
+    overflow: hidden;
+    background-color: #dddddb;
+    width: 307px;
+    height: 39px;
+    bottom: 160px;
+    animation-play-state: paused;
+}
+
+.pf-right .level3 {
+    position: absolute;
+    left: -100%;
+    top: 0px;
+    animation: bar3 1s both;
+    animation-play-state: paused;
+
+}
+
+
+.pf-right .flower3 {
+    position: absolute;
+    bottom: 155px;
+    left: 5%;
+    z-index: 10;
+    animation: flower3 1s both;
+    animation-play-state: paused;
+}
+
+
+.pf-right .skills4 {
+    position: absolute;
+    overflow: hidden;
+    background-color: #dddddb;
+    width: 307px;
+    height: 39px;
+    bottom: 85px;
+    animation-play-state: paused;
+}
+
+.pf-right .flower4 {
+    position: absolute;
+    bottom: 80px;
+    left: 5%;
+    z-index: 10;
+    animation: flower4 1s both;
+    animation-play-state: paused;
+}
+
+.pf-right .level4 {
+    position: absolute;
+    left: -100%;
+    top: 0px;
+    animation: bar4 1s both;
+    animation-play-state: paused;
+
+}
+
+
+.pf-right .skills5 {
+    position: absolute;
+    overflow: hidden;
+    background-color: #dddddb;
+    width: 307px;
+    height: 39px;
+    bottom: 10px;
+    animation-play-state: paused;
+}
+
+.pf-right .flower5 {
+    position: absolute;
+    bottom: 0px;
+    left: 5%;
+    z-index: 10;
+    animation: flower5 1s both;
+    animation-play-state: paused;
+}
+
+.pf-right .level5 {
+    position: absolute;
+    left: -100%;
+    top: 0px;
+    animation: bar5 1s both;
+    animation-play-state: paused;
+
+}
+
+/* -------------------------------------------- */
+.on .pf-right .level1 {
+    position: absolute;
+    left: -100%;
+    animation: bar1 1s both;
+    animation-play-state: running;
+}
+
+
+
+.on .pf-right .flower1 {
+    position: absolute;
+    bottom: 300px;
+    left: 5%;
+    z-index: 10;
+    animation: flower1 1s both;
+    animation-play-state: running;
+}
+
+
+
+.on .pf-right .skills2 {
+    position: absolute;
+    overflow: hidden;
+    background-color: #dddddb;
+    width: 307px;
+    height: 39px;
+    bottom: 235px;
+    animation-play-state: running;
+}
+
+.on .pf-right .level2 {
+    position: absolute;
+    left: -100%;
+    top: 0px;
+    animation: bar2 1s both;
+    animation-play-state: running;
+    animation-delay: 0.5s;
+
+}
+
+
+
+
+.on .pf-right .flower2 {
+    position: absolute;
+    bottom: 230px;
+    left: 5%;
+    z-index: 10;
+    animation: flower2 1s both;
+    animation-play-state: running;
+    animation-delay: 0.5s;
+}
+
+.on .pf-right .skills3 {
+    position: absolute;
+    overflow: hidden;
+    background-color: #dddddb;
+    width: 307px;
+    height: 39px;
+    bottom: 160px;
+    animation-play-state: running;
+}
+
+.on .pf-right .level3 {
+    position: absolute;
+    left: -100%;
+    top: 0px;
+    animation: bar3 1s both;
+    animation-play-state: running;
+    animation-delay: 1s;
+
+}
+
+
+.on .pf-right .flower3 {
+    position: absolute;
+    bottom: 155px;
+    left: 5%;
+    z-index: 10;
+    animation: flower3 1s both;
+    animation-play-state: running;
+    animation-delay: 1s;
+}
+
+
+.on .pf-right .skills4 {
+    position: absolute;
+    overflow: hidden;
+    background-color: #dddddb;
+    width: 307px;
+    height: 39px;
+    bottom: 85px;
+    animation-play-state: running;
+
+}
+
+.on .pf-right .flower4 {
+    position: absolute;
+    bottom: 80px;
+    left: 5%;
+    z-index: 10;
+    animation: flower4 1s both;
+    animation-play-state: running;
+    animation-delay: 1.5s;
+}
+
+.on .pf-right .level4 {
+    position: absolute;
+    left: -100%;
+    top: 0px;
+    animation: bar4 1s both;
+    animation-play-state: running;
+    animation-delay: 1.5s;
+
+}
+
+
+.on .pf-right .skills5 {
+    position: absolute;
+    overflow: hidden;
+    background-color: #dddddb;
+    width: 307px;
+    height: 39px;
+    bottom: 10px;
+    animation-play-state: running;
+}
+
+.on .pf-right .flower5 {
+    position: absolute;
+    bottom: 0px;
+    left: 5%;
+    z-index: 10;
+    animation: flower5 1s both;
+    animation-play-state: running;
+    animation-delay: 2s;
+}
+
+.on .pf-right .level5 {
+    position: absolute;
+    left: -100%;
+    top: 0px;
+    animation: bar5 1s both;
+    animation-play-state: running;
+    animation-delay: 2s;
+
+}
+
+
+/* ------------------------ */
+
+
+
+@keyframes flower1 {
+    0% {}
+
+    100% {
+        left: 70%;
+    }
+}
+
+
+@keyframes flower2 {
+    0% {}
+
+    100% {
+        left: 70%;
+    }
+}
+
+@keyframes flower3 {
+    0% {}
+
+    100% {
+        left: 50%;
+    }
+}
+
+@keyframes flower4 {
+    0% {}
+
+    100% {
+        left: 35%;
+    }
+}
+
+
+@keyframes flower5 {
+    0% {}
+
+    100% {
+        left: 50%;
+    }
+}
+
+
+
+/* -------------------- */
+
+@keyframes bar1 {
+    0% {}
+
+    100% {
+        left: -25%;
+    }
+}
+
+
+@keyframes bar2 {
+    0% {}
+
+    100% {
+        left: -25%;
+    }
+}
+
+@keyframes bar3 {
+    0% {}
+
+    100% {
+        left: -40%;
+    }
+}
+
+@keyframes bar4 {
+    0% {}
+
+    100% {
+        left: -60%;
+    }
+}
+
+@keyframes bar5 {
+    0% {}
+
+    100% {
+        left: -40%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------------------------- */
+
+
+
+
+.accordion-wrapper>div {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+
+}
+
+.accordion {
+    position: relative;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.layout-inner {
+    width: 1509px;
+    margin: 0 auto;
+
+
+}
+
+.layout-inner button {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 65px;
+    text-align: left;
+    font-size: 40px;
+    line-height: 65px;
+    background: none;
+    border: none;
+    width: 100%;
+
+}
+
+.layout-inner button h3 {
+    width: 750px;
+    display: inline-block;
+}
+
+.layout-inner button span {
+    width: 756px;
+    font-weight: bold;
+    font-size: 50px;
+    padding-left: 100px;
+}
+
+.accordion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 100%;
+    height: 1px;
+    overflow: hidden;
+    background-color: lightslategray;
+
+
+}
+
+.accordion-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.accodion-header {
+    padding: 67px 0px;
+    box-sizing: border-box;
+}
+
+.aside-left {
+
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    font-family: 'SUIT-Medium';
+    font-size: 18px;
+    line-height: 27px;
+    padding-left: 100px;
+}
+
+.aside-left h4 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.aside-left p {
+    margin-bottom: 33px;
+}
+
+.aside-left a {
+    padding: 22px 28px;
+    margin: 1px;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 15px;
+    width: 181px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.aside-left span {
+    padding-bottom: 20px;
+
+}
+
+
+.accordion-content .aside-right {
+    width: 700px;
+    background-image: url(../images/Minimalist-Showcase-Project-Presentation.png);
+    height: 500px;
+    background-position-x: -150px;
+    background-position-y: -100px;
+    background-repeat: no-repeat;
+}
+
+
+.accordion2 .aside-right {
+    width: 700px;
+    background-image: url(../images/Minimalist-Showcase-Project-Presentation2.png);
+    height: 395px;
+    background-position-x: -150px;
+    background-position-y: -120px;
+    background-repeat: no-repeat;
+}
+
+.accordion3 .aside-right {
+    width: 700px;
+    background-image: url(../images/Web-Showcase-Project-Presentation3.png);
+    height: 505px;
+    background-position-x: -150px;
+    background-position-y: 0px;
+    background-repeat: no-repeat;
+}
+
+.accordion4 .aside-right {
+    width: 700px;
+    background-image: url(../images/Minimalist-Showcase-Project-Presentation4.png);
+    height: 405px;
+    background-position-x: -150px;
+    background-position-y: -100px;
+    background-repeat: no-repeat;
+    width: 750px;
+}
+
+
+.accordion5::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    width: 100%;
+    height: 1px;
+    background: gray;
+
+}
+
+/* ---------------------------------------------------------------- */
+
+.design {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+
+}
+
+
+
+.design div {
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+}
+
+
+.ban1 {
+    display: none;
+}
+
+.design div img {
+    width: 60%;
+    height: 80%;
+}
+
+.design .vsc img {
+    height: 30%;
+    width: 40%;
+}
+
+.design .logo-mockup img {
+    width: 50%;
+    height: 50%;
+}
+
+/* ----------------------------------------------------------- */
+footer {
+    position: relative;
+    width: 100vw;
+    /* display: flex;
+    justify-content: space-around; */
+    height: 200px;
+    font-family: 'SUIT-SemiBold';
+    background-color: black;
+    /* margin-top: 100px; */
+    padding-top: 50px;
+    text-align: center;
+
+
+}
+
+footer ul {
+    position: relative;
+    display: inline-block;
+}
+
+footer ul .text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: pink;
+    color: red;
+    line-height: 100px;
+    border-radius: 50px;
+    font-size: 25px;
+    pointer-events: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer ul:hover .text {
+    opacity: 0;
+    transition: opacity 0.5s 0.125s ease-out;
+}
+
+footer ul li {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background-color: pink;
+    line-height: 100px;
+    margin: 0 -16px;
+    /* cursor: pointer; */
+    border-radius: 0;
+    transition: background-color 0.5s ease-out, border-radius 0.5s,
+        margin 0.5s 0.25s ease-out;
+    text-align: center;
+}
+
+footer ul li i {
+    color: red;
+    font-size: 30px;
+    opacity: 0;
+    transition: opacity 1.7s;
+
+}
+
+footer ul:hover li i {
+    opacity: 1;
+}
+
+
+footer ul li:nth-child(1) {
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+footer ul li:nth-child(3) {
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+footer ul:hover li {
+    border-radius: 50px;
+    margin: 0 3px;
+}
+
+footer p {
+    color: pink;
+    display: block;
+    padding-top: 50px;
+}
+
+footer ul li .fa-code {
+    cursor: default;
+}
+
+footer ul li:nth-child(4) {
+    cursor: default;
+}
+
+
+/* ------------------------------ */
+
+footer .peony {
+    position: absolute;
+    width: 100px;
+    left: 20%;
+    top: 25%;
+}
+
+footer .peony2 {
+    position: absolute;
+    width: 100px;
+    right: 20%;
+    top: 25%;
+}
+
+
+/* ------------------------------------- */
